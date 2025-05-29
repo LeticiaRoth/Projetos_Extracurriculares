@@ -1,13 +1,14 @@
 import customtkinter as ctk
 from tkinter import messagebox
 
+#Modo escuro
 ctk.set_appearance_mode('dark')
 
 system = ctk.CTk()
 system.title("Sistema de gerenciamento do WorldGame")
 system.geometry("400x450")
 
-#Listas que irão armazenar aquilo que for adicionado, já vi isso
+#Listas que irão armazenar aquilo que for adicionado dentro das funções, já vi isso
 jogos_disponiveis = []
 preco_jogo = []
 quantidade_loja = []
@@ -17,7 +18,7 @@ preco_fabrica = []
 registro_vendas = []
 registro_compra = []
 
-
+#Criado como Label para receber valores lá embaixo, quando necessário
 resultado = ctk.CTkLabel(system, text="", wraplength=380, justify="left")
 resultado.pack(pady=20)
 
@@ -32,6 +33,7 @@ def cadastrar_jogos():
 
     #ctk.CTkLabel - uso para escrever em determinada parte
     ctk.CTkLabel(parte_cadastro, text="Nome do Jogo").pack(pady=0)
+    #ctk.CTkEntry - uso para receber valores colocados pelo usuário
     nome = ctk.CTkEntry(parte_cadastro, placeholder_text="Insira o nome")
     nome.pack(pady=5)
 
@@ -235,6 +237,7 @@ def sair():
 
 
 #Botões do menu, poderia usar um while True
+#Command, chama a função que eu criei lá em cima
 ctk.CTkButton(system, text="Cadastrar jogo", command=cadastrar_jogos).pack(pady=5)
 ctk.CTkButton(system, text="Registrar venda", command=registrar_venda).pack(pady=5)
 ctk.CTkButton(system, text="Compra de estoque", command=compra_estoque).pack(pady=5)
